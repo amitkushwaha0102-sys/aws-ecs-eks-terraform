@@ -47,3 +47,19 @@ resource "aws_s3_bucket_public_access_block" "block" {
   ignore_public_acls      = true
   restrict_public_buckets = true
 }
+
+resource "aws_dynamodb_table" "database" {
+  name         = var.dynamo_db
+  billing_mode = "PAY_PER_REQUEST"
+  hash_key     = "LockID"
+
+  attribute {
+    name = "LockID"
+    type = "S"
+  }
+
+  tags = {
+    Name        = "Terraform state lock table"
+    Environment = "Dev"
+  }
+}

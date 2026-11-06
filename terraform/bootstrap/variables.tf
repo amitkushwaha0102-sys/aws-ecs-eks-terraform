@@ -7,3 +7,7 @@ variable "region" {
 variable "bucket" {
   default = "amit-2700"
 }
+
+variable "dynamo_db" {
+  default = "dynamo-db"
+}
