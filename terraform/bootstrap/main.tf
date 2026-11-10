@@ -1,5 +1,12 @@
 terraform {
-  required_version = ">=1.5.0"
+  required_version = ">= 1.5.0"
+  backend "s3" {
+    bucket         = "amit-9992202700"
+    key            = "bootstrap/terraform.tfstate"
+    region         = "ap-south-1"
+    encrypt        = true
+    dynamodb_table = "dynamo-db2700"
+  }
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -49,7 +56,7 @@ resource "aws_s3_bucket_public_access_block" "block" {
 }
 
 resource "aws_dynamodb_table" "database" {
-  name         = var.dynamo_db
+  name         = var.terraform-state-lock
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "LockID"
 

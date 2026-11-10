@@ -5,9 +5,9 @@ variable "region" {
 }
 
 variable "bucket" {
-  default = "amit-2700"
+  default = "amit-9992202700"
 }
 
-variable "dynamo_db" {
-  default = "dynamo-db"
+variable "terraform-state-lock" {
+  default = "dynamo-db2700"
 }
