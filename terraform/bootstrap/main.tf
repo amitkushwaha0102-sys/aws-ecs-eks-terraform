@@ -22,6 +22,9 @@ provider "aws" {
 
 resource "aws_s3_bucket" "mybucket" {
   bucket = var.bucket
+  lifecycle {
+    prevent_destroy = true
+  }
 
   tags = {
     Name        = "My bucket"
@@ -59,6 +62,10 @@ resource "aws_dynamodb_table" "database" {
   name         = var.terraform-state-lock
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "LockID"
+
+  lifecycle {
+    prevent_destroy = true
+  }
 
   attribute {
     name = "LockID"
