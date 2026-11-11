@@ -1,5 +1,7 @@
 # Node
 node_modules/
+.venv/
+venv/
 .env
 .env.local
 npm-debug.log
