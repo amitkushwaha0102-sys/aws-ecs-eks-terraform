@@ -2,6 +2,9 @@
 node_modules/
 .venv/
 venv/
+__pycache__/
+*.pyc
+.git
 .env
 .env.local
 npm-debug.log
