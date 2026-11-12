@@ -22,3 +22,8 @@ output "app_sg_id" {
   description = "App security group ID"
   value       = module.vpc.app_sg_id
 }
+
+output "ecr_repository_url" {
+  description = "ECR repository URL"
+  value       = module.ecr.repository_url
+}
