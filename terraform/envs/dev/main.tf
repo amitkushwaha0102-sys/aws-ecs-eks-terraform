@@ -13,3 +13,14 @@ module "ecr" {
 
   name = "ecs-eks-demo"
 }
+
+module "ecs" {
+  source = "../../modules/ecs"
+
+  name              = "ecs-eks-demo"
+  vpc_id            = module.vpc.vpc_id
+  public_subnet_ids = module.vpc.public_subnet_ids
+  alb_sg_id         = module.vpc.alb_sg_id
+  app_sg_id         = module.vpc.app_sg_id
+  image             = "${module.ecr.repository_url}:1.0.0"
+}

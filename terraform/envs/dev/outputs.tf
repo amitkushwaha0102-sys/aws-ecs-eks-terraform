@@ -27,3 +27,8 @@ output "ecr_repository_url" {
   description = "ECR repository URL"
   value       = module.ecr.repository_url
 }
+
+output "alb_dns_name" {
+  description = "Open this URL in the browser"
+  value       = module.ecs.alb_dns_name
+}
